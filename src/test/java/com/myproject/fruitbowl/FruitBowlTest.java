@@ -13,6 +13,7 @@ public class FruitBowlTest {
     @Test(expectedExceptions = NoFruitsAvailable.class)
  public void fruitBowlShouldNotBeEmpty(){
         FruitBowl fruitBowl=new FruitBowl();
+
         fruitBowl.add(new Fruit("Orange"));
   fruitBowl.checkFruitsAvailable(fruitBowl.getFruits(fruitBowl));
  }
@@ -74,6 +75,7 @@ public class FruitBowlTest {
      Assert.assertEquals(3,fruitCount.get("Apple".toLowerCase()));
      Assert.assertEquals(2,fruitCount.get("Cherry".toLowerCase()));
      Assert.assertEquals(1,fruitCount.get("Banana".toLowerCase()));
+
 
  }
 }

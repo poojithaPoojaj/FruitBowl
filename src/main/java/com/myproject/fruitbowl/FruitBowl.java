@@ -1,6 +1,7 @@
 package com.myproject.fruitbowl;
 
 
+import com.myproject.fruitbowl.exceptions.InvalidException;
 import com.myproject.fruitbowl.exceptions.NoFruitsAvailable;
 import com.myproject.fruitbowl.fruits.Fruit;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FruitBowl {
+
     ArrayList<Fruit> fruits;
     public FruitBowl(){
         fruits=new ArrayList<>();
@@ -15,30 +17,29 @@ public class FruitBowl {
     public void add(Fruit fruit){
         fruits.add(fruit);
     }
-
     public ArrayList<Fruit> getFruits(FruitBowl fruitBowl) {
         return fruitBowl.fruits;
     }
 
-   public ArrayList<Fruit> getFruitsWithSameName(String name,ArrayList<Fruit> fruitList){
+   public ArrayList<Fruit> getFruitsWithSameName(String name,FruitBowl fruitBowl){
       ArrayList<Fruit> sameFruitByName=new ArrayList<>();
-      for(Fruit fruit:fruitList){
+      for(Fruit fruit:fruitBowl.getFruits(fruitBowl)){
           if(fruit.getName().equalsIgnoreCase(name))
               sameFruitByName.add(fruit);
       }
       return  sameFruitByName;
    }
-    public ArrayList<Fruit> getFruitsWithSameSize(int size,ArrayList<Fruit> fruitList){
+    public ArrayList<Fruit> getFruitsWithSameSize(int size,FruitBowl fruitBowl){
         ArrayList<Fruit> sameFruitBySize=new ArrayList<>();
-        for(Fruit fruit:fruitList){
-            if(fruit.getSize()==(size))
+        for(Fruit fruit:fruitBowl.getFruits(fruitBowl)){
+            if(fruit.getSize()==size)
                 sameFruitBySize.add(fruit);
         }
         return  sameFruitBySize;
     }
-    public ArrayList<Fruit> getFruitsWithSameColor(String color,ArrayList<Fruit> fruitList){
+    public ArrayList<Fruit> getFruitsWithSameColor(String color,FruitBowl fruitBowl){
         ArrayList<Fruit> sameFruitBycolor=new ArrayList<>();
-        for(Fruit fruit:fruitList){
+        for(Fruit fruit:fruitBowl.getFruits(fruitBowl)){
             if(fruit.getColor().equalsIgnoreCase(color))
                 sameFruitBycolor.add(fruit);
         }

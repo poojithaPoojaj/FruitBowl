@@ -10,8 +10,15 @@ import java.util.HashMap;
 public class MultiLayeredBasket {
     int layer;
     ArrayList<Fruit> fruits;
-    final HashMap<Integer,ArrayList<Fruit>> basket=new HashMap<>();
+     HashMap<Integer,ArrayList<Fruit>> basket;
 
+    public HashMap<Integer, ArrayList<Fruit>> getBasket() {
+        return basket;
+    }
+
+    public MultiLayeredBasket(){
+        basket=new HashMap<>();
+    }
     public void checkSpaceAndAdd(int layer,ArrayList<Fruit> fruits){
         if(!isFruitsAvailableAtLevel(layer))
         {
