@@ -1,7 +1,6 @@
 package com.myproject.fruitbowl;
 
 import com.myproject.fruitbowl.exceptions.NoSpaceException;
-import com.myproject.fruitbowl.fruits.Fruit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

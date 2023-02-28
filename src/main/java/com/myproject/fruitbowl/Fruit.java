@@ -1,4 +1,4 @@
-package com.myproject.fruitbowl.fruits;
+package com.myproject.fruitbowl;
 
 import com.myproject.fruitbowl.Validator;
 import com.myproject.fruitbowl.exceptions.InvalidException;
@@ -51,6 +51,9 @@ public class Fruit {
 
 
     public void setName(String name) {
+        if(!new Validator().isNameNotNullOrNotEmpty(name)){
+            throw new InvalidException("Friut name is not empty or null");
+        }
         this.name = name;
     }
 }

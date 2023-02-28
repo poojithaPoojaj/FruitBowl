@@ -1,9 +1,7 @@
 package com.myproject.fruitbowl;
 
 
-import com.myproject.fruitbowl.exceptions.InvalidException;
 import com.myproject.fruitbowl.exceptions.NoFruitsAvailable;
-import com.myproject.fruitbowl.fruits.Fruit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
