@@ -1,8 +1,11 @@
 package com.myproject.fruitbowl;
 
+
+import com.myproject.fruitbowl.exceptions.NoFruitsAvailable;
 import com.myproject.fruitbowl.fruits.Fruit;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FruitBowl {
     ArrayList<Fruit> fruits;
@@ -13,8 +16,8 @@ public class FruitBowl {
         fruits.add(fruit);
     }
 
-    public ArrayList<Fruit> getFruits() {
-        return fruits;
+    public ArrayList<Fruit> getFruits(FruitBowl fruitBowl) {
+        return fruitBowl.fruits;
     }
 
    public ArrayList<Fruit> getFruitsWithSameName(String name,ArrayList<Fruit> fruitList){
@@ -41,5 +44,27 @@ public class FruitBowl {
         }
         return  sameFruitBycolor;
     }
+    public boolean isFruitBowlEmpty(ArrayList<Fruit> fruits){
+        return fruits.isEmpty();
+    }
+     public void checkFruitsAvailable(ArrayList<Fruit> fruits){
+        if(isFruitBowlEmpty(fruits)){
+            throw new NoFruitsAvailable("Fruit Bowl is Empty");
+        }
+     }
+     public HashMap<String,Integer> getCountOfIndividualFruits(FruitBowl fruitBowl){
+        checkFruitsAvailable(fruits);
 
+         HashMap<String,Integer> fruitsCountList=new HashMap<>();
+         for(Fruit fruit:fruitBowl.getFruits(fruitBowl)){
+             String name=fruit.getName().toLowerCase();
+             if(fruitsCountList.containsKey(name)){
+                 fruitsCountList.put(name,fruitsCountList.get(name)+1);
+             }
+             else{
+                 fruitsCountList.put(name,1);
+             }
+         }
+         return fruitsCountList;
+     }
 }

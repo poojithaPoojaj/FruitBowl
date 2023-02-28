@@ -1,5 +1,6 @@
 package com.myproject.fruitbowl;
 
+import com.myproject.fruitbowl.exceptions.NoFruitsAvailable;
 import com.myproject.fruitbowl.exceptions.NoSpaceException;
 import com.myproject.fruitbowl.fruits.Fruit;
 
@@ -19,6 +20,12 @@ public class MultiLayeredBasket {
         else {
             throw new NoSpaceException();
         }
+    }
+    public ArrayList<Fruit> getFruitsByLayer(int layer){
+        if(basket.containsKey(layer)){
+            return basket.get(layer);
+        }
+        throw new NoFruitsAvailable("Fruits are not available at this layer");
     }
     public void add(int layer,ArrayList<Fruit> fruits){
         basket.put(layer,fruits);
